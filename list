@@ -1,0 +1,58 @@
+<?php
+$link = mysqli_connect("localhost","root","lict@2","crud3");
+$query = "select * from final_crud";
+$result = mysqli_query($link, $query);
+#var_dump($query);
+?>
+<table border="2" width="80%">
+
+    <u>
+        <li><a href ="#">Download as XL</a></li>
+        <li><a href ="#">Download as PDF</a></li>
+        <li><a href ="create.html">Create New</a></li>
+    </u><br>
+
+    <tr>
+        <td>id</td>
+        <td>first_name</td>
+        <td>last_name</td>
+        <td>email</td>
+        <td>password</td>
+        <td>DOB</td>
+        <td>gender</td>
+        <td>hobby</td>
+        <td>fav_food</td>
+        <td>comment</td>
+        <td>image</td>
+        <td>created</td>
+        <td>modified</td>
+        <td>Action</td>
+    </tr>
+    <?php
+    foreach($result as $row){
+        ?>
+        <tr>
+            <td><?php echo $row['id']?></td>
+            <td><?php echo $row['first_name']?></td>
+            <td><?php echo $row['last_name']?></td>
+            <td><?php echo $row['email']?></td>
+            <td><?php echo $row['password']?></td>
+            <td><?php echo $row['DOB']?></td>
+            <td><?php echo $row['gender']?></td>
+            <td><?php echo $row['hobby']?></td>
+            <td><?php echo $row['fav_food']?></td>
+            <td><?php echo $row['comment']?></td>
+            <td><?php echo $row['image']?></td>
+            <td><?php echo $row['created']?></td>
+            <td><?php echo $row['modified']?></td>
+
+
+            <td> <a href="view.php?id=<?php echo $row['id']?>">View/Show</a> |
+                <a href="delete.php?id=<?php echo $row['id']?>">Delete</a> |
+                <a href="edit.php?id=<?php echo $row['id']?>">edit</a> |
+            </td>
+        </tr>
+    <?php
+    }
+    ?>
+</table>
