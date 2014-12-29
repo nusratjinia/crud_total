@@ -1,0 +1,53 @@
+<?php
+//var_dump($_POST);
+$id= $_POST['id'];
+$first_name = $_POST['first_name'];
+$last_name=  $_POST['last_name'];
+$email = $_POST['email'];
+
+$password = $_POST['password'];
+
+//list($DOBMonth,$DOBDay,$DOBYear)
+
+$DOB = $_POST['DOBYear']."-" .$_POST['DOBMonth']."-".$_POST['DOBDay'];
+
+
+
+
+$gender = $_POST['gender'];
+$hobby = $_POST['hobby'];
+
+$fav_food = $_POST['fav_food'];
+$comment = $_POST['comment'];
+$image = $_POST['image'];
+$created = $_POST['created'];
+$modified = $_POST['modified'];
+
+$link = mysqli_connect("localhost",
+    "root",
+    "lict@2",
+    "crud3");
+$query = "INSERT INTO `crud3`.`final_crud` (
+`id` ,
+`first_name` ,
+`last_name` ,
+`email` ,
+`password` ,
+`DOB` ,
+`gender` ,
+`hobby` ,
+`fav_food` ,
+`comment` ,
+`image` ,
+`created` ,
+`modified`
+)
+VALUES (
+    '$id' , '$first_name', '$last_name', '$email', '$password', '$DOB', '$gender', '$hobby', '$fav_food', '$comment', '$image', '$created', '$modified'
+)";
+
+echo $query;
+mysqli_query($link, $query);
+header('location:list.php');
+
+?>
