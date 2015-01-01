@@ -1,0 +1,38 @@
+<?php
+
+echo '<pre>';
+
+print_r ($_POST);
+
+echo '</pre>';
+
+$hobby = '';
+
+
+if(isset($_POST['h-Reading']) && !empty($_POST['h-Reading'])){
+    $hobby .= $_POST['h-Reading'];
+    $hobby .=' ,' ;
+}
+
+if(isset($_POST['h-Travelling']) &&  !empty($_POST['h-Travelling'])){
+    $hobby .= $_POST['h-Travelling'];
+    $hobby .=' ,' ;
+}
+
+if(isset($_POST['h-Gardening']) &&  !empty($_POST['h-Gardening'])){
+    $hobby .= $_POST['h-Gardening'];
+    $hobby .=' ,';
+}
+
+if(isset($_POST['h-Mountain_Traveling']) &&  !empty($_POST['h-Mountain_Traveling'])){
+    $hobby .= $_POST['h-Mountain_Traveling'];
+    $hobby .=' ,';
+}
+
+//$hobby =  rtrim($hobby,',');
+
+$hobby =  substr($hobby,0,-1);
+
+echo $hobby;
+
+?>
